@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>图形绘制</title>
 </head>
 <body>
-$END$
+    <canvas id="canvas" style="border: 1px solid #aaa;display:block;margin: 50px auto;"></canvas>
 </body>
+<script>
+    window.onload=function () {
+        var canvas=document.getElementById("canvas");
+        canvas.width=500;
+        canvas.height=500;
+        var context=canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(100,100);//起点
+        context.lineTo(300,100);
+        context.lineTo(300,300);
+        context.closePath();
+        context.lineWidth=10;
+        context.strokeStyle="#058";
+        context.fillStyle="rgba(0,256,0,0.6)";
+        context.fill();
+        context.stroke();
+    }
+</script>
 </html>
