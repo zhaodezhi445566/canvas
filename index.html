@@ -13,6 +13,11 @@
         canvas.width=500;
         canvas.height=500;
         var context=canvas.getContext('2d');
+//        context.translate(100,100);
+        context.shadowColor="#058";
+        context.shadowOffsetX=10;
+        context.shadowOffsetY=10;
+        context.shadowBlur=5;
         context.beginPath();
         context.moveTo(100,100);//起点
         context.lineTo(300,100);

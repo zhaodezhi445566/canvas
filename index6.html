@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>图形绘制</title>
 </head>
 <body>
-$END$
+<canvas id="canvas" style="border: 1px solid #aaa;display:block;margin: 50px auto;"></canvas>
 </body>
+<script>
+    window.onload=function () {
+        var canvas=document.getElementById("canvas");
+        canvas.width=700;
+        canvas.height=500;
+        var context=canvas.getContext('2d');
+        context.beginPath();
+        context.arc(300,300,200,0,Math.PI*2,false);
+        context.arc(300,300,100,0,Math.PI*2,true);
+        context.closePath();
+
+        context.fillStyle="#058";
+        context.shadowColor="gray";
+        context.shadowOffsetX=10;
+        context.shadowOffsetY=10;
+        context.shadowBlur=10;
+        context.fill();
+    }
+    //canvas.addEventListener("mousemove",detect);
+    function detect(event) {
+        var x=event.clientX-canvas.getBoundingClientRect().left;
+        var y=event.clientY-canvas.getBoundingClientRect().top;//鼠标获取当前canvas位置
+        for(var i=0;i<balls.length;i++){
+            context.beginPath();
+            context.arc(balls[i].x,balls[i].y,balls[i].r,0,Math.PI*2);
+            if(context.isPointInPath(x,y)){
+                context.fillStyle='red';
+                context.fill();
+            }
+        }
+    }
+</script>
 </html>

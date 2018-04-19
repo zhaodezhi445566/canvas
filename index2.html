@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>图形绘制</title>
 </head>
 <body>
-$END$
+<canvas id="canvas" style="border: 1px solid #aaa;display:block;margin: 50px auto;"></canvas>
 </body>
+<script>
+    window.onload=function () {
+        var canvas=document.getElementById("canvas");
+        canvas.width=700;
+        canvas.height=500;
+        var context=canvas.getContext('2d');
+        context.globalAlpha=0.7;//全部透明度
+        for(var i=0;i<100;i++){
+            var R=Math.floor(Math.random()*255);
+            var G=Math.floor(Math.random()*255);
+            var B=Math.floor(Math.random()*255);
+            context.fillStyle="rgb("+R+","+G+","+B+")";
+            context.beginPath();
+            context.arc(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*50,0,Math.PI*2);
+            context.fill();
+        }
+
+    }
+</script>
 </html>
